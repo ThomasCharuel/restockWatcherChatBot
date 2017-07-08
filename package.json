@@ -25,6 +25,7 @@
     "body-parser": "^1.17.2",
     "config": "^1.26.1",
     "express": "^4.15.3",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "request": "^2.81.0"
   }
 }
