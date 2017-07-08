@@ -75,6 +75,7 @@ if (req.query['hub.mode'] === 'subscribe' &&
 });
 
 app.post('/webhook', function(req, res){
+    console.dir(req)
     const data = req.body;
 
     // Make sure this is a page subscription
