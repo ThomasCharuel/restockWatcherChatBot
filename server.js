@@ -1,10 +1,17 @@
 const 
     express = require('express'),
+    bodyParser = require('body-parser'),
     https = require('https'),
     config = require('config'),
     fs = require('fs');
 
 const app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // Create an HTTP service.
 app.listen(80, () => {
@@ -75,7 +82,6 @@ if (req.query['hub.mode'] === 'subscribe' &&
 });
 
 app.post('/webhook', function(req, res){
-    console.dir(req)
     const data = req.body;
 
     // Make sure this is a page subscription
