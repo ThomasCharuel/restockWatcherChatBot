@@ -1,4 +1,8 @@
 {
     "privateKeyPath": "",
-    "serverCertificatePath": ""
+    "serverCertificatePath": "",
+    "appSecret": "",
+    "pageAccessToken": "",
+    "validationToken": "",
+    "serverURL": ""
 }
