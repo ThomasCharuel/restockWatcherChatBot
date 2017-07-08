@@ -1,10 +1,16 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer(function(req, res){
-    res.writeHead(200);
-    res.end('Salut tout le monde');
-});
-server.listen(8080);
+const app = express();
+
+app.get('/', function(req, res){
+    res.send('Hello World!')
+})
+
+
+app.listen(80, () => {
+    console.log('Server listening on port 80');
+})
+
 
 // https.get('https://www.lynda.com/', res => {
 //     console.log('Response status code: ', res.statusCode);
