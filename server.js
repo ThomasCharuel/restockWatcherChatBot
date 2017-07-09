@@ -127,7 +127,7 @@ function receivedMessage(event) {
     var messageText = message.text;
     var messageAttachments = message.attachments;
 
-    let url, sizes;
+    var url, sizes;
 
     if (messageText) {
 
