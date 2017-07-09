@@ -142,6 +142,31 @@ function receivedMessage(event) {
         case 'converse2':
             sendConverse2Sizes(senderID);
             break;
+        
+        case 'alert':
+            setInterval(function(){
+                const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
+                converse.getAvailableSizes(url, function(sizes){
+
+                    const availableSize = sizes.find(function(size){
+                        return el === 35 || el === 41.5
+                    });
+                    
+                    if(availableSize){
+                        var messageData = {
+                            recipient: {
+                                id: recipientId
+                            },
+                            message: {
+                                text: `Your shoe is available for size: ${ size }. Hurry up! ${ url }`
+                            }
+                        };
+
+                        callSendAPI(messageData);
+                    }
+                });
+            }, 10000);
+            break;
 
         default:
             sendTextMessage(senderID, messageText);
