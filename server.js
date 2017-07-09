@@ -157,7 +157,7 @@ function receivedMessage(event) {
                 converse.getAvailableSizes(url, function(sizes){
 
                     const availableSize = sizes.find(function(size){
-                        return size === 35 || size === 41.5
+                        return size == '35'|| size == '41.5'
                     });
                     
                     if(availableSize){

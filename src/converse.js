@@ -29,9 +29,8 @@ exports.getAvailableSizes = function(url, callback){
                 return $(this).text();
             }).get();
 
-        
+        console.log('Sizes found: ');
         console.dir(sizesOptions);
-        console.log('this was sizes')
 
         callback(sizesOptions);
     });
