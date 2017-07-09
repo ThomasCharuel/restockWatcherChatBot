@@ -147,14 +147,14 @@ function receivedMessage(event) {
         
         case 'alert':
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
-            sizes = ['35', '41.5'];
+            sizes = ['41', '41.5'];
 
             handleSetAlert(senderID, url, sizes);
             break;
 
         case 'alert2':
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
-            sizes = ['35', '41.5'];
+            sizes = ['41', '41.5'];
 
             handleSetAlert(senderID, url, sizes);
             break;
@@ -188,7 +188,7 @@ function handleSetAlert(recipientId, url, sizes){
                 sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
             }
         });
-    }, 10000);
+    }, 100000);
 }
 
 function sendTextMessage(recipientId, messageText) {

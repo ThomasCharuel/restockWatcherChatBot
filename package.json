@@ -4,7 +4,8 @@
   "description": "A facebook chatbot that keeps you updated on the size restock of the item of your choice",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sudo node --harmony_array_includes server.js"
   },
   "repository": {
     "type": "git",
