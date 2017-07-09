@@ -139,6 +139,9 @@ function receivedMessage(event) {
         case 'converse':
             sendConverseSizes(senderID);
             break;
+        case 'converse2':
+            sendConverseSizes(senderID);
+            break;
 
         default:
             sendTextMessage(senderID, messageText);
@@ -167,6 +170,25 @@ function sendTextMessage(recipientId, messageText) {
 
 function sendConverseSizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
+    converse.getAvailableSizes(url, function(sizes){
+        console.log('sizes: ');
+        console.dir(sizes)
+
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                text: sizes.length > 0 ? `Yo, available sizes: ${ sizes.join(', ') }.` : 'No available sizes :('
+            }
+        };
+
+        callSendAPI(messageData);
+    });
+}
+
+function sendConverse2Sizes(recipientId){
+    const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
     converse.getAvailableSizes(url, function(sizes){
         console.log('sizes: ');
         console.dir(sizes)
