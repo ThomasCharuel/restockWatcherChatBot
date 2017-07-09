@@ -8,22 +8,30 @@ const
 
 var exec = require('child_process').exec;
 
-var cmd = 'lynx http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR -source';
 
-exec(cmd, function(error, stdout, stderr) {
+// Return the available sizes for a given url
+// Ex: array returned [35, 42]
+export default function getAvailableSizes(url){
+    const cmd = `lynx ${ url } -source`;
 
-    const $ = cheerio.load(stdout);
+    exec(cmd, function(error, stdout, stderr) {
 
-    const sizesOptions = 
-        $('#sizes')
-        .first()
-        .children('option')
-        .filter(function(i, el){
-            return $(this).attr('value') !== '';
-        })
-        .map(function(i, el){
-            return $(this).text();
-        }).get();
+        const $ = cheerio.load(stdout);
 
-    sizesOptions.forEach((size) => console.log(size))
-});
+        const sizesOptions = 
+            $('#sizes')
+            .first()
+            .children('option')
+            .filter(function(i, el){
+                return $(this).attr('value') !== '';
+            })
+            .map(function(i, el){
+                return $(this).text();
+            }).get();
+
+        return sizesOptions;
+    });
+
+    return null;
+}   
+
