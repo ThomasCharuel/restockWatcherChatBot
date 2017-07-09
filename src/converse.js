@@ -18,6 +18,8 @@ exports.getAvailableSizes = function(url){
 
         const $ = cheerio.load(stdout);
 
+        console.log(stdout)
+
         const sizesOptions = 
             $('#sizes')
             .first()
@@ -29,9 +31,11 @@ exports.getAvailableSizes = function(url){
                 return $(this).text();
             }).get();
 
+        console.dir(sizesOptions);
+
         return sizesOptions;
     });
 
-    return null;
+    return [];
 }   
 

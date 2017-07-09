@@ -169,6 +169,9 @@ function sendConverseSizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
     const sizes = converse.getAvailableSizes(url);
 
+    console.log('sizes: ');
+    console.dir(sizes)
+
     var messageData = {
         recipient: {
             id: recipientId
