@@ -144,12 +144,20 @@ function receivedMessage(event) {
             break;
         
         case 'alert':
+            callSendAPI({
+                recipient: {
+                    id: recipientId
+                },
+                message: {
+                    text: `You created an alert, I'll get back to you if I find the size you are looking for`
+                }
+            });
             setInterval(function(){
                 const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
                 converse.getAvailableSizes(url, function(sizes){
 
                     const availableSize = sizes.find(function(size){
-                        return el === 35 || el === 41.5
+                        return size === 35 || size === 41.5
                     });
                     
                     if(availableSize){
