@@ -180,7 +180,8 @@ function handleSetAlert(recipientId, url, sizes){
         converse.getAvailableSizes(url, function(availableSizes){
 
             const availableSize = availableSizes.find(function(size){
-                return size == '35'|| size == '41.5'
+                // return true if the available size is among the requested ones, false otherwise
+                return sizes.includes(size);
             });
             
             if(availableSize){
