@@ -4,6 +4,7 @@ const
     https = require('https'),
     config = require('config'),
     request = require('request'),
+    converse = require('./src/converse.js')
     fs = require('fs');
 
 const app = express();
@@ -166,7 +167,7 @@ function sendTextMessage(recipientId, messageText) {
 
 function sendConverseSizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
-    const sizes = getAvailableSizes(url);
+    const sizes = converse.getAvailableSizes(url);
 
     var messageData = {
         recipient: {

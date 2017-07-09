@@ -11,7 +11,7 @@ var exec = require('child_process').exec;
 
 // Return the available sizes for a given url
 // Ex: array returned [35, 42]
-export default function getAvailableSizes(url){
+exports.getAvailableSizes = function(url){
     const cmd = `lynx ${ url } -source`;
 
     exec(cmd, function(error, stdout, stderr) {
