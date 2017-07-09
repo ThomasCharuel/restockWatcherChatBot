@@ -167,21 +167,21 @@ function sendTextMessage(recipientId, messageText) {
 
 function sendConverseSizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
-    const sizes = converse.getAvailableSizes(url);
+    converse.getAvailableSizes(url, function(sizes){
+        console.log('sizes: ');
+        console.dir(sizes)
 
-    console.log('sizes: ');
-    console.dir(sizes)
+        var messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: {
+                text: sizes.join(', ')
+            }
+        };
 
-    var messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message: {
-            text: sizes.join(', ')
-        }
-    };
-
-    callSendAPI(messageData);
+        callSendAPI(messageData);
+    });
 }
 
 function callSendAPI(messageData) {
