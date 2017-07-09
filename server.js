@@ -127,6 +127,8 @@ function receivedMessage(event) {
     var messageText = message.text;
     var messageAttachments = message.attachments;
 
+    let url, sizes;
+
     if (messageText) {
 
         // If we receive a text message, check to see if it matches a keyword
@@ -144,36 +146,17 @@ function receivedMessage(event) {
             break;
         
         case 'alert':
-            callSendAPI({
-                recipient: {
-                    id: senderID
-                },
-                message: {
-                    text: `You created an alert, I'll get back to you if I find the size you are looking for`
-                }
-            });
-            setInterval(function(){
-                const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
-                converse.getAvailableSizes(url, function(sizes){
+            url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
+            sizes = ['35', '41.5'];
 
-                    const availableSize = sizes.find(function(size){
-                        return size == '35'|| size == '41.5'
-                    });
-                    
-                    if(availableSize){
-                        var messageData = {
-                            recipient: {
-                                id: senderID
-                            },
-                            message: {
-                                text: `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`
-                            }
-                        };
+            handleSetAlert(senderID, url, sizes);
+            break;
 
-                        callSendAPI(messageData);
-                    }
-                });
-            }, 10000);
+        case 'alert2':
+            url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
+            sizes = ['35', '41.5'];
+
+            handleSetAlert(senderID, url, sizes);
             break;
 
         default:
@@ -186,6 +169,25 @@ function receivedMessage(event) {
 
 function sendGenericMessage(recipientId, messageText) {
   // To be expanded in later sections
+}
+
+function handleSetAlert(recipientId, url, sizes){
+    
+    sendTextMessage(recipientId, `You created an alert, I'll get back to you if I find the size you are looking for`);
+
+    setInterval(function(){
+        
+        converse.getAvailableSizes(url, function(availableSizes){
+
+            const availableSize = availableSizes.find(function(size){
+                return size == '35'|| size == '41.5'
+            });
+            
+            if(availableSize){
+                sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
+            }
+        });
+    }, 10000);
 }
 
 function sendTextMessage(recipientId, messageText) {
@@ -204,9 +206,6 @@ function sendTextMessage(recipientId, messageText) {
 function sendConverseSizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
     converse.getAvailableSizes(url, function(sizes){
-        console.log('sizes: ');
-        console.dir(sizes)
-
         var messageData = {
             recipient: {
                 id: recipientId
@@ -223,8 +222,6 @@ function sendConverseSizes(recipientId){
 function sendConverse2Sizes(recipientId){
     const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
     converse.getAvailableSizes(url, function(sizes){
-        console.log('sizes: ');
-        console.dir(sizes)
 
         var messageData = {
             recipient: {
