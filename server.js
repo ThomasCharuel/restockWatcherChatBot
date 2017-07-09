@@ -146,7 +146,7 @@ function receivedMessage(event) {
         case 'alert':
             callSendAPI({
                 recipient: {
-                    id: recipientId
+                    id: senderID
                 },
                 message: {
                     text: `You created an alert, I'll get back to you if I find the size you are looking for`
@@ -163,7 +163,7 @@ function receivedMessage(event) {
                     if(availableSize){
                         var messageData = {
                             recipient: {
-                                id: recipientId
+                                id: senderID
                             },
                             message: {
                                 text: `Your shoe is available for size: ${ size }. Hurry up! ${ url }`
