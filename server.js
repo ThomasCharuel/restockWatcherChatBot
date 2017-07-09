@@ -140,7 +140,7 @@ function receivedMessage(event) {
             sendConverseSizes(senderID);
             break;
         case 'converse2':
-            sendConverseSizes(senderID);
+            sendConverse2Sizes(senderID);
             break;
 
         default:
