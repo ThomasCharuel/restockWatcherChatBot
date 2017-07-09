@@ -166,7 +166,7 @@ function receivedMessage(event) {
                                 id: senderID
                             },
                             message: {
-                                text: `Your shoe is available for size: ${ size }. Hurry up! ${ url }`
+                                text: `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`
                             }
                         };
 
