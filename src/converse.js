@@ -11,11 +11,12 @@ var exec = require('child_process').exec;
 var cmd = 'lynx http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR -source';
 
 exec(cmd, function(error, stdout, stderr) {
-    console.log(stdout)
+
     const $ = cheerio.load(stdout);
 
     const sizesOptions = 
         $('#sizes')
+        .first()
         .children('option')
         .filter(function(i, el){
             return $(this).attr('value') !== '';
