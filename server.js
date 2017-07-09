@@ -176,7 +176,7 @@ function sendConverseSizes(recipientId){
                 id: recipientId
             },
             message: {
-                text: sizes.join(', ')
+                text: sizes.length > 0 ? `Yo, available sizes: ${ sizes.join(', ') }.` : 'No available sizes :('
             }
         };
 
