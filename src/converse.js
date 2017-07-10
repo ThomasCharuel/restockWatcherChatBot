@@ -11,6 +11,7 @@ var exec = require('child_process').exec;
 
 // Return the available sizes for a given url
 // Ex: array returned [35, 42]
+// If no sizes found return 
 exports.getAvailableSizes = function(url, callback){
     var cmd = `lynx ${ url } -source`;
 
@@ -31,6 +32,8 @@ exports.getAvailableSizes = function(url, callback){
 
         console.log('Sizes found: ');
         console.dir(sizesOptions);
+
+        stdout.resume();
 
         callback(sizesOptions);
     });
