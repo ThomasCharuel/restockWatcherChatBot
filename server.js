@@ -188,7 +188,7 @@ function handleSetAlert(recipientId, url, sizes){
                 sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
             }
         });
-    }, 100000);
+    }, 1000);
 }
 
 function sendTextMessage(recipientId, messageText) {
