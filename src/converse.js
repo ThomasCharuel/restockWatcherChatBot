@@ -33,8 +33,6 @@ exports.getAvailableSizes = function(url, callback){
         console.log('Sizes found: ');
         console.dir(sizesOptions);
 
-        stdout.resume();
-
         callback(sizesOptions);
     });
 }   
