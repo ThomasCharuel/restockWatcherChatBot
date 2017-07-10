@@ -153,7 +153,7 @@ function receivedMessage(event) {
             break;
 
         case 'alert2':
-            url = 'http://www.converse.com/r/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
+            url = 'http://www.convese.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
             sizes = ['41', '41.5'];
 
             handleSetAlert(senderID, url, sizes);
