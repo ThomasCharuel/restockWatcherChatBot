@@ -149,6 +149,8 @@ function receivedMessage(event) {
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
             sizes = ['41', '41.5'];
 
+            sendTextMessage(senderID, 'Alert created');
+
             handleSetAlert(senderID, url, sizes);
             break;
 
@@ -156,6 +158,8 @@ function receivedMessage(event) {
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
             sizes = ['41', '41.5'];
 
+            sendTextMessage(senderID, 'Alert created');
+            
             handleSetAlert(senderID, url, sizes);
             break;
 
