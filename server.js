@@ -159,7 +159,7 @@ function receivedMessage(event) {
             sizes = ['41', '41.5'];
 
             sendTextMessage(senderID, 'Alert created');
-            
+
             handleSetAlert(senderID, url, sizes);
             break;
 
@@ -189,7 +189,7 @@ function handleSetAlert(recipientId, url, sizes){
         }
     });
 
-    setTimeout(handleSetAlert(recipientId, url, sizes), 10000);
+    setTimeout(handleSetAlert(recipientId, url, sizes), 100000);
 }
 
 function sendTextMessage(recipientId, messageText) {
