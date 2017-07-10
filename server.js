@@ -153,7 +153,7 @@ function receivedMessage(event) {
             break;
 
         case 'alert2':
-            url = 'http://www.convese.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
+            url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
             sizes = ['41', '41.5'];
 
             handleSetAlert(senderID, url, sizes);
@@ -172,23 +172,20 @@ function sendGenericMessage(recipientId, messageText) {
 }
 
 function handleSetAlert(recipientId, url, sizes){
-    
-    sendTextMessage(recipientId, `You created an alert, I'll get back to you if I find the size you are looking for`);
 
-    setInterval(function(){
-        
-        converse.getAvailableSizes(url, function(availableSizes){
+    converse.getAvailableSizes(url, function(availableSizes){
 
-            var availableSize = availableSizes.find(function(size){
-                // return true if the available size is among the requested ones, false otherwise
-                return sizes.includes(size);
-            });
-            
-            if(availableSize){
-                sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
-            }
+        var availableSize = availableSizes.find(function(size){
+            // return true if the available size is among the requested ones, false otherwise
+            return sizes.includes(size);
         });
-    }, 1000);
+        
+        if(availableSize){
+            sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
+        }
+    });
+
+    setTimeout(handleSetAlert(recipientId, url, sizes), 1000);
 }
 
 function sendTextMessage(recipientId, messageText) {
