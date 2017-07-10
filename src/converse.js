@@ -1,7 +1,7 @@
 // Check and display available size for a shoe on the converse website
 // Product page example: http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR
 
-const
+var
     cheerio = require('cheerio');
 
 //lynx http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.ng=fr_FR -source
@@ -12,13 +12,13 @@ var exec = require('child_process').exec;
 // Return the available sizes for a given url
 // Ex: array returned [35, 42]
 exports.getAvailableSizes = function(url, callback){
-    const cmd = `lynx ${ url } -source`;
+    var cmd = `lynx ${ url } -source`;
 
     exec(cmd, function(error, stdout, stderr) {
 
-        const $ = cheerio.load(stdout);
+        var $ = cheerio.load(stdout);
 
-        const sizesOptions = 
+        var sizesOptions = 
             $('#sizes')
             .first()
             .children('option')

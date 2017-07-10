@@ -179,7 +179,7 @@ function handleSetAlert(recipientId, url, sizes){
         
         converse.getAvailableSizes(url, function(availableSizes){
 
-            const availableSize = availableSizes.find(function(size){
+            var availableSize = availableSizes.find(function(size){
                 // return true if the available size is among the requested ones, false otherwise
                 return sizes.includes(size);
             });
@@ -221,7 +221,7 @@ function sendConverseSizes(recipientId){
 }
 
 function sendConverse2Sizes(recipientId){
-    const url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
+    const url = 'http://www.converse.con/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
     converse.getAvailableSizes(url, function(sizes){
 
         var messageData = {
