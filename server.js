@@ -185,7 +185,7 @@ function handleSetAlert(recipientId, url, sizes){
         }
     });
 
-    setTimeout(handleSetAlert(recipientId, url, sizes), 1000);
+    setTimeout(handleSetAlert(recipientId, url, sizes), 10000);
 }
 
 function sendTextMessage(recipientId, messageText) {
