@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sudo node --harmony_array_includes server.js"
+    "start": "sudo node --harmony_array_includes server.js > test.log &"
   },
   "repository": {
     "type": "git",
