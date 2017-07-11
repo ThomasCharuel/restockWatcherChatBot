@@ -13,7 +13,7 @@ var exec = require('child_process').exec;
 // Ex: array returned [35, 42]
 // If no sizes found return 
 exports.getAvailableSizes = function(url, callback){
-    var cmd = `lynx ${ url } -source`;
+    var cmd = ``;
 
     exec(cmd, function(error, stdout, stderr) {
 
