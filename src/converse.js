@@ -14,8 +14,11 @@ var exec = require('child_process').exec;
 // If no sizes found return 
 exports.getAvailableSizes = function(url, callback){
     var cmd = ``;
+    
+    var sizesOptions = [];
+    callback(sizesOptions);
 
-    exec(cmd, function(error, stdout, stderr) {
+    /*exec(cmd, function(error, stdout, stderr) {
 
         var $ = cheerio.load(stdout);
 
@@ -34,6 +37,6 @@ exports.getAvailableSizes = function(url, callback){
         console.dir(sizesOptions);
 
         callback(sizesOptions);
-    });
+    });*/
 }   
 
