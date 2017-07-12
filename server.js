@@ -151,7 +151,7 @@ function receivedMessage(event) {
             sizes = ['41', '41.5'];
 
             sendTextMessage(senderID, 'Alert created');
-            console.log('init loop alert2');
+            console.log('init loop alert');
             handleSetAlert(senderID, url, sizes);
             break;
 
