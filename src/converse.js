@@ -24,7 +24,7 @@ exports.getAvailableSizes = function(url, callback){
             throw error;
         }
         
-        /*var $ = cheerio.load(stdout);
+        var $ = cheerio.load(stdout);
 
         sizesOptions = 
             $('#sizes')
@@ -38,7 +38,7 @@ exports.getAvailableSizes = function(url, callback){
             }).get();
 
         console.log('Sizes found: ');
-        console.dir(sizesOptions);*/
+        console.dir(sizesOptions);
         
         callback(sizesOptions);
     });
