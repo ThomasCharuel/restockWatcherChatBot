@@ -152,7 +152,9 @@ function receivedMessage(event) {
 
             sendTextMessage(senderID, 'Alert created');
             console.log('init loop alert');
-            handleSetAlert(senderID, url, sizes);
+            setTimeout(function(){
+                handleSetAlert(senderID, url, sizes)
+            }, 10000);
             break;
 
         case 'alert2':
@@ -162,7 +164,9 @@ function receivedMessage(event) {
 
             sendTextMessage(senderID, 'Alert created');
             console.log('init loop alert2');
-            handleSetAlert(senderID, url, sizes);
+            setTimeout(function(){
+                handleSetAlert(senderID, url, sizes)
+            }, 10000);
             break;
 
         default:
@@ -190,10 +194,6 @@ function handleSetAlert(recipientId, url, sizes){
             sendTextMessage(recipientId, `Your shoe is available for size: ${ availableSize }. Hurry up! ${ url }`);
         }
     });
-
-    setTimeout(function(){
-        handleSetAlert(recipientId, url, sizes)
-    }, 10000);
 }
 
 function sendTextMessage(recipientId, messageText) {
