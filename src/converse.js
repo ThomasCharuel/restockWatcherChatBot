@@ -17,7 +17,7 @@ exports.getAvailableSizes = function(url, callback){
     
     var sizesOptions = [];
     
-    execFile('node', ['--version'], (error, stdout, stderr) => {
+    execFile('lynx', [url, '-source'], (error, stdout, stderr) => {
         if (error) {
             console.error('stderr', stderr);
             callback(sizesOptions);
