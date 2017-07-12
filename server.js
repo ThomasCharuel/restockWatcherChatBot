@@ -148,7 +148,7 @@ function receivedMessage(event) {
         case 'alert':
             console.log('new alert');
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.html?lang=fr_FR';
-            sizes = ['41', '41.5'];
+            sizes = ['42'];
 
             sendTextMessage(senderID, 'Alert created');
             console.log('init loop alert');
@@ -158,7 +158,7 @@ function receivedMessage(event) {
         case 'alert2':
             console.log('new alert2');
             url = 'http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/142337C_030.html?lang=fr_FR';
-            sizes = ['41', '41.5'];
+            sizes = ['41.5'];
 
             sendTextMessage(senderID, 'Alert created');
             console.log('init loop alert2');
