@@ -20,19 +20,13 @@ exports.getAvailableSizes = function(url, callback){
     execFile('node', ['--version'], (error, stdout, stderr) => {
         if (error) {
             console.error('stderr', stderr);
+            callback(sizesOptions);
             throw error;
         }
-        console.log('stdout', stdout);
         
-        callback(sizesOptions);
-    });
-    
-
-    /*exec(cmd, function(error, stdout, stderr) {
-
         var $ = cheerio.load(stdout);
 
-        var sizesOptions = 
+        sizesOptions = 
             $('#sizes')
             .first()
             .children('option')
@@ -45,8 +39,8 @@ exports.getAvailableSizes = function(url, callback){
 
         console.log('Sizes found: ');
         console.dir(sizesOptions);
-
+        
         callback(sizesOptions);
-    });*/
+    });
 }   
 
