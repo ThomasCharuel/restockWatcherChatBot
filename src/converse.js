@@ -20,7 +20,6 @@ exports.getAvailableSizes = function(url, callback){
     execFile('node', ['--version'], (error, stdout, stderr) => {
         if (error) {
             console.error('stderr', stderr);
-            throw error;
         }
         console.log('stdout', stdout);
         
