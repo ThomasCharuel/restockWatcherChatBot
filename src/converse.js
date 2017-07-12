@@ -6,7 +6,7 @@ var
 
 //lynx http://www.converse.com/fr/regular/chuck-taylor-all-star-%2770/146977C_030.ng=fr_FR -source
 
-var exec = require('child_process').exec;
+var exec = require('child_process').execFile;
 
 
 // Return the available sizes for a given url
@@ -16,7 +16,17 @@ exports.getAvailableSizes = function(url, callback){
     var cmd = `lynx ${ url } -source`;
     
     var sizesOptions = [];
-    callback(sizesOptions);
+    
+    execFile('node', ['--version'], (error, stdout, stderr) => {
+        if (error) {
+            console.error('stderr', stderr);
+            throw error;
+        }
+        console.log('stdout', stdout);
+        
+        callback(sizesOptions);
+    });
+    
 
     /*exec(cmd, function(error, stdout, stderr) {
 
